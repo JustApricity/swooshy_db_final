@@ -1,0 +1,8 @@
+Personality defines colors
+[red angry, orange, yellow, green, blue, purple]
+Location defines model
+[avian, reptillian, aquatic, arboreal, nocturnal, scavenger]
+Age defines size of model
+[young, adult, elder]
+
+
