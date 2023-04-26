@@ -1,7 +1,16 @@
-mixin swooshyForm(swooshy, saveURL, cancelURl, deleteURL)
+mixin animalForm(animal, buttonText, saveURL, cancelURL, deleteURL)
     form(action=saveURL method='post')
         div.input-container
-            label(for='age') What age is your Swooshy?
-            select([
-
-            // resume on slide 15
+            label(for='age') How old is your animal?
+            select(id='age' name='age')
+                each age in ages
+                    option(value=age) #{age}
+        div.input-container
+            label(for='type') Where does it live?
+            select(id='type' name='type')
+                each type in types
+                    option(value=type) #{type}
+        a.button(href=cancelURL) Cancel
+        if(deleteURL)
+            a.button(href=deleteURL) Delete
+        button.button.primary(type='submit') #{buttonText}

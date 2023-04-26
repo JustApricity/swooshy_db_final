@@ -1,0 +1,6 @@
+extends ../layout
+
+block content
+    include ../mixins/animalForm
+    div.content
+        +animalForm(animal, 'Create', '/animal/add', '/', null)
