@@ -4,10 +4,11 @@ block content
     div.container
         div.content
             div.animal-header-row
-                h1.animal-title=animal.name
+                h1.animal-title=`${animal.age} ${animal.color} ${animal.type}`
             p.created-on Created
                 strong.emphasize #{animal.friendlyCreatedDate}
                 | by
                 strong.emphasize #{animal.user.first_name}
 
             img.animal-image(src=animal.image_url)
+            p.animal-body=animal.backstory

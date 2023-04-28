@@ -2,7 +2,7 @@ extends ../layout
 
 block content
     include ../mixins/animalCard
-    div.animal-header
+    div.animals-header
         div.animal-header-title New Animals
         div
             a.button.primary(href='/animal/add') Create New Animal
@@ -10,4 +10,4 @@ block content
     ul.animal-list
         each animal in animals
             li
-                +animalForm(animal)
+                +animalCard(animal)

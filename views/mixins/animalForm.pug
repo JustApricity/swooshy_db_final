@@ -6,10 +6,13 @@ mixin animalForm(animal, buttonText, saveURL, cancelURL, deleteURL)
                 each age in ages
                     option(value=age) #{age}
         div.input-container
-            label(for='type') Where does it live?
+            label(for='type').form-label What kind of animal is it?
             select(id='type' name='type')
                 each type in types
                     option(value=type) #{type}
+        div.input-container
+            label(for='backstory').form-label Write a backstory for your animal.
+            textarea(name='backstory' id='backstory' rows=20 cols=100 placeholder='Singing killed my grandma, okay?') #{animal.backstory}
         a.button(href=cancelURL) Cancel
         if(deleteURL)
             a.button(href=deleteURL) Delete

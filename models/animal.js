@@ -24,6 +24,7 @@ module.exports = (sequelize, DataTypes) => {
     age: DataTypes.STRING,
     image_url: DataTypes.STRING,
     user_id: DataTypes.INTEGER,
+    backstory: DataTypes.STRING,
     created_on: DataTypes.DATE,
     friendlyCreatedDate: {
       type: DataTypes.VIRTUAL,

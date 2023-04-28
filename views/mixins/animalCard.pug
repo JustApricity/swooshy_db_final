@@ -2,8 +2,9 @@ mixin animalCard(animal)
     a.card(href=`/animal/${animal.id}`)
         img.card-image(src=animal.image_url)
         div.card-body
-            div.card-title=animal.title
+            div.card-title=`${animal.age} ${animal.color} ${animal.type}`
             p.created-on Created
                 strong.emphasize #{animal.friendlyCreatedDate}
                 | by
                 strong.emphasize #{animal.user.first_name}
+            div.card-hook Click to learn about me!
