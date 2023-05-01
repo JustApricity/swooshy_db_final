@@ -5,6 +5,7 @@ block content
         div.content
             div.animal-header-row
                 h1.animal-title=`${animal.age} ${animal.color} ${animal.type}`
+                a.button(href=`/animal/${animal.id}/edit`) Edit
             p.created-on Created
                 strong.emphasize #{animal.friendlyCreatedDate}
                 | by
@@ -12,3 +13,5 @@ block content
 
             img.animal-image(src=animal.image_url)
             p.animal-body=animal.backstory
+
+            // todo resume on part 1, slide 42

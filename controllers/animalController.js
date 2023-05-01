@@ -19,6 +19,7 @@ module.exports.addAnimal = async function (req,res) {
         type: req.body.type,
         age: req.body.age,
         backstory: req.body.backstory,
+        image_url: `../public/images/${req.body.color}/${req.body.type}.png`,
         user_id: 1, // todo get logged in
         created_on: new Date()
     });
@@ -39,6 +40,31 @@ module.exports.displayAll = async function (req, res) {
     res.render('animals/viewAll', {animals});
 }
 
-module.exports.capitalizeFirstLetter = function (string) {
-    return string.charAt(0).toUpperCase() + string.slice(1);
+module.exports.renderEditForm = async function (req, res) {
+    const animal = await Animal.findByPk(req.params.animalId);
+    res.render('animals/edit', {animal, ages, colors, types});
+}
+
+module.exports.updateAnimal = async function (req, res) {
+    await Animal.update({
+        color: req.body.color,
+        type: req.body.type,
+        age: req.body.age,
+        backstory: req.body.backstory,
+        image_url: `../public/images/${req.body.color}/${req.body.type}.png`
+    }, {
+        where: {
+            id: req.params.animalId
+        }
+    });
+    res.redirect(`/animal/${req.params.animalId}`);
+}
+
+module.exports.deleteAnimal = async function (req, res) {
+    await Animal.destroy({
+        where: {
+            id: req.params.animalId
+        }
+    });
+    res.redirect('/')
 }

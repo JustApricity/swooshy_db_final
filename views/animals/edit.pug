@@ -1,0 +1,6 @@
+extends ../layout
+
+block content
+    include ../mixins/animalForm
+    div.content
+        +animalForm(animal, 'Update', `/animal/${animal.id}/edit`, `/animal/${animal.id}`, `/animal/${animal.id}/delete`)
