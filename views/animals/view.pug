@@ -1,6 +1,7 @@
 extends ../layout
 
 block content
+    include ../mixins/comment
     div.container
         div.content
             div.animal-header-row
@@ -14,4 +15,19 @@ block content
             img.animal-image(src=animal.image_url)
             p.animal-body=animal.backstory
 
-            // todo resume on part 1, slide 42
+            div.comment-section
+                h3.comment-section-title Comments (#{animal.comments.length})
+                div.comment-form
+                    form(action=`/animal/${animal.id}/comment/create` method='post')
+                        div.input-container.wide
+                            label(for='user_name').form-label Your name
+                            input(type='text' name='user_name' id='user_name' required=true)
+                        div.input-container.wide
+                            textarea(placeholder='Write your comment here.' required=true name='body' id='body' cols='80' rows='5')
+                        div
+                            button.button.primary(type='submit') Comment
+
+                ul.comment-list
+                    each comment in animal.comments
+                        li
+                            +comment(comment)

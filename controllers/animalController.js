@@ -1,4 +1,4 @@
-const {Animal} = require('../models');
+const {Animal, Comment, Reply} = require('../models');
 let ages = ['Young', 'Adult', 'Elder'];
 let colors = ['Red', 'Orange', 'Yellow', 'Green', 'Blue', 'Purple'];
 let types = ['Avian', 'Reptilian', 'Aquatic', 'Arboreal', 'Nocturnal', 'Scavenger'];
@@ -28,7 +28,22 @@ module.exports.addAnimal = async function (req,res) {
 
 module.exports.displayAnimal = async function(req, res){
     const animal = await Animal.findByPk(req.params.animalId, {
-        include: ['user']
+        include: [
+            'user',
+            {
+                model: Comment,
+                as: 'comments',
+                required: false,
+                include: [{
+                    model: Reply,
+                    as: 'replies',
+                    required: false
+                }]
+            }
+        ],
+        order: [
+            ['comments', 'commented_on', 'desc']
+        ]
     })
     res.render('animals/view', {animal});
 }

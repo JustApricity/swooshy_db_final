@@ -15,6 +15,10 @@ module.exports = (sequelize, DataTypes) => {
       Animal.belongsTo(models.User, {
         as: 'user',
         foreignKey: 'user_id'
+      });
+      Animal.hasMany(models.Comment, {
+        as: 'comments',
+        foreignKey: 'animal_id'
       })
     }
   }
