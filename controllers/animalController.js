@@ -20,7 +20,7 @@ module.exports.addAnimal = async function (req,res) {
         age: req.body.age,
         backstory: req.body.backstory,
         image_url: `../public/images/${req.body.color}/${req.body.type}.png`,
-        user_id: 1, // todo get logged in
+        user_id: req.user_id,
         created_on: new Date()
     });
     res.redirect('/') // todo change the redirect to view all once made

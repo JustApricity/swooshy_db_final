@@ -7,5 +7,21 @@ html
     link(rel='preconnect' href='https://fonts.gstatic.com' crossorigin)
     link(href='https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap' rel='stylesheet')
   body
+    nav
+      div.container
+        h3 Swooshy Database
+        ul.nav.justify-content-end.main-nav
+          li.nav-item
+            a.nav-link(href='/') View Animals
+          if user
+            li.nav-item
+              a.nav-link(href='#') Hello #{user.first_name}
+            li.nav-item
+              a.nav-link(href='/logout') Logout
+          else
+            li.nav-item
+              a.nav-link(href='login') Login
+            li.nav-item
+              a.nav-link(href='/register') Register
     div.container
       block content
