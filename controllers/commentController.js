@@ -23,3 +23,27 @@ module.exports.addReply = async function (req, res) {
     })
     res.redirect(`/animal/${animalId}`);
 }
+
+module.exports.deleteComment = async function (req, res) {
+    const comment = await Comment.findByPk(req.params.commentId);
+    await Comment.update({
+        is_deleted: true
+    }, {
+        where: {
+            id: req.params.commentId
+        }
+    })
+    res.redirect(`/animal/${comment.animal_id}`);
+}
+
+module.exports.deleteReply = async function (req, res) {
+    const reply = await Reply.findByPk(req.params.replyId);
+    await Reply.update({
+        is_deleted: true
+    }, {
+        where: {
+            id: req.params.replyId
+        }
+    })
+    res.redirect(`/animal/${reply.animal_id}`);
+}

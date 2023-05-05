@@ -14,6 +14,6 @@ mixin animalForm(animal, buttonText, saveURL, cancelURL, deleteURL)
             label(for='backstory').form-label Write a backstory for your animal.
             textarea(name='backstory' id='backstory' rows=20 cols=100 placeholder='Singing killed my grandma, okay?') #{animal.backstory}
         a.button(href=cancelURL) Cancel
-        if(deleteURL)
+        if(deleteURL && user && animal.isOwnedBy(user))
             a.button(href=deleteURL) Delete
         button.button.primary(type='submit') #{buttonText}

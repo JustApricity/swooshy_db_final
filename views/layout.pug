@@ -9,13 +9,14 @@ html
   body
     nav
       div.container
-        h3 Swooshy Database
+        h3
+          a(href='/animal') Swooshy Database
         ul.nav.justify-content-end.main-nav
           li.nav-item
             a.nav-link(href='/') View Animals
           if user
             li.nav-item
-              a.nav-link(href='#') Hello #{user.first_name}
+              a.nav-link(href='#') Hello, #{user.first_name}
             li.nav-item
               a.nav-link(href='/logout') Logout
           else

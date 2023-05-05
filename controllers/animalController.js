@@ -23,7 +23,7 @@ module.exports.addAnimal = async function (req,res) {
         user_id: req.user.id,
         created_on: new Date()
     });
-    res.redirect('/') // todo change the redirect to view all once made
+    res.redirect('/')
 }
 
 module.exports.displayAnimal = async function(req, res){
@@ -57,10 +57,19 @@ module.exports.displayAll = async function (req, res) {
 
 module.exports.renderEditForm = async function (req, res) {
     const animal = await Animal.findByPk(req.params.animalId);
+    if (!animal.isOwnedBy(user)) {
+        res.redirect('/');
+        return;
+    }
     res.render('animals/edit', {animal, ages, colors, types});
 }
 
 module.exports.updateAnimal = async function (req, res) {
+    const animal = await Animal.findByPk(req.params.animalId);
+    if (!animal.isOwnedBy(user)) {
+        res.redirect('/');
+        return;
+    }
     await Animal.update({
         color: req.body.color,
         type: req.body.type,
@@ -76,6 +85,11 @@ module.exports.updateAnimal = async function (req, res) {
 }
 
 module.exports.deleteAnimal = async function (req, res) {
+    const animal = await Animal.findByPk(req.params.animalId);
+    if (!user.is('admin') && !animal.isOwnedBy(user)) {
+        res.redirect('/');
+        return;
+    }
     await Animal.destroy({
         where: {
             id: req.params.animalId
