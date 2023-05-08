@@ -57,7 +57,7 @@ module.exports.displayAll = async function (req, res) {
 
 module.exports.renderEditForm = async function (req, res) {
     const animal = await Animal.findByPk(req.params.animalId);
-    if (!animal.isOwnedBy(user)) {
+    if (!animal.isOwnedBy(req.user)) {
         res.redirect('/');
         return;
     }
@@ -66,7 +66,7 @@ module.exports.renderEditForm = async function (req, res) {
 
 module.exports.updateAnimal = async function (req, res) {
     const animal = await Animal.findByPk(req.params.animalId);
-    if (!animal.isOwnedBy(user)) {
+    if (!animal.isOwnedBy(req.user)) {
         res.redirect('/');
         return;
     }
