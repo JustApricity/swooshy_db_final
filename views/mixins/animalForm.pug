@@ -1,6 +1,9 @@
 mixin animalForm(animal, buttonText, saveURL, cancelURL, deleteURL)
     form(action=saveURL method='post')
         div.input-container
+            label(for='name').form-label What is your animal's name?
+            input(type='text' value=animal.name id='name' name='name')
+        div.input-container
             label(for='age') How old is your animal?
             select(id='age' name='age')
                 each age in ages
