@@ -5,7 +5,7 @@ block content
     div.container
         div.content
             div.animal-header-row
-                h1.animal-title=`${animal.age} ${animal.color} ${animal.type}`
+                h1.animal-title=animal.name
                 if user && animal.isOwnedBy(user)
                     a.button(href=`/animal/${animal.id}/edit`) Edit
                 if user && user.is('admin')

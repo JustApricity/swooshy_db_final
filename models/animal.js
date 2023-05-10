@@ -21,6 +21,9 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: 'animal_id'
       })
     }
+    isOwnedBy(user) {
+      return this.user_id === user.id
+    }
   }
   Animal.init({
     color: DataTypes.STRING,

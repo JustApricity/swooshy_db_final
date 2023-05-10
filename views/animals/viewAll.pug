@@ -5,7 +5,8 @@ block content
     div.animals-header
         div.animal-header-title New Animals
         div
-            a.button.primary(href='/animal/add') Create New Animal
+            if user && user.is('user')
+                a.button.primary(href='/animal/add') Create New Animal
 
     ul.animal-list
         each animal in animals

@@ -4,18 +4,23 @@ mixin animalForm(animal, buttonText, saveURL, cancelURL, deleteURL)
             label(for='name').form-label What is your animal's name?
             input(type='text' value=animal.name id='name' name='name')
         div.input-container
-            label(for='age') How old is your animal?
+            label(for='age').form-label How old is your animal?
             select(id='age' name='age')
                 each age in ages
-                    option(value=age) #{age}
+                    option(value=age selected=(age===animal.age)) #{age}
+        div.input-container
+            label(for='color').form-label What's its favorite color?
+            select(id='color' name='color')
+                each color in colors
+                    option(value=color selected=(color===animal.color)) #{color}
         div.input-container
             label(for='type').form-label What kind of animal is it?
             select(id='type' name='type')
                 each type in types
-                    option(value=type) #{type}
+                    option(value=type selected=(type===animal.type)) #{type}
         div.input-container
             label(for='backstory').form-label Write a backstory for your animal.
-            textarea(name='backstory' id='backstory' rows=20 cols=100 placeholder='Singing killed my grandma, okay?') #{animal.backstory}
+            textarea(name='backstory' id='backstory' value=animal.backstory rows=20 cols=100 placeholder='Singing killed my grandma, okay?') #{animal.backstory}
         a.button(href=cancelURL) Cancel
         if(deleteURL && user && animal.isOwnedBy(user))
             a.button(href=deleteURL) Delete

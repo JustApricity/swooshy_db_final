@@ -5,6 +5,7 @@ let types = ['Avian', 'Reptilian', 'Aquatic', 'Arboreal', 'Nocturnal', 'Scavenge
 
 module.exports.renderAddForm = async function(req, res) {
     const animal = {
+        name: '',
         color: '',
         type: '',
         age: '',
@@ -88,7 +89,7 @@ module.exports.updateAnimal = async function (req, res) {
 
 module.exports.deleteAnimal = async function (req, res) {
     const animal = await Animal.findByPk(req.params.animalId);
-    if (!user.is('admin') && !animal.isOwnedBy(user)) {
+    if (!req.user.is('admin') && !animal.isOwnedBy(req.user)) {
         res.redirect('/');
         return;
     }
