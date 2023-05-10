@@ -41,4 +41,7 @@ router.get('/comment/:commentId/delete', ensureUserAuthenticated, userHasRole('a
 
 router.get('/comment/:commentId/reply/:replyId/delete', ensureUserAuthenticated, userHasRole('admin'), commentController.deleteReply);
 
+router.get('/info', function (req, res){
+    res.render('info')
+})
 module.exports = router;

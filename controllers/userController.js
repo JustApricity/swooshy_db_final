@@ -19,7 +19,8 @@ module.exports.register = async function(req, res){
 }
 
 module.exports.renderLogin = function(req, res){
-    res.render('users/login');
+    const errors = req.session.messages || [];
+    res.render('users/login', {errors});
 }
 
 module.exports.login = passport.authenticate('local', {

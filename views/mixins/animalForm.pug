@@ -18,6 +18,8 @@ mixin animalForm(animal, buttonText, saveURL, cancelURL, deleteURL)
             select(id='type' name='type')
                 each type in types
                     option(value=type selected=(type===animal.type)) #{type}
+            a(href='/info')
+                img.info-button(src='https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Icon-round-Question_mark.svg/1024px-Icon-round-Question_mark.svg.png')
         div.input-container
             label(for='backstory').form-label Write a backstory for your animal.
             textarea(name='backstory' id='backstory' value=animal.backstory rows=20 cols=100 placeholder='Singing killed my grandma, okay?') #{animal.backstory}
