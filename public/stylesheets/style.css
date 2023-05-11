@@ -324,7 +324,6 @@ ul.comment-list {
 
 
 .comment-form, .reply-form {
-  background: #F1F5F9;
   padding: 1rem;
   border-radius: 8px;
   background-color: #ffdbdb;
@@ -353,7 +352,13 @@ ul.reply-list {
 
 #error {
   color: #660000;
-  list-style-type: none;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+ul#error2 {
+  padding: 0;
 }
 
 .emphasize {
@@ -447,7 +452,6 @@ ul.reply-list {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 66%;
 }
 
 /*explain style*/
