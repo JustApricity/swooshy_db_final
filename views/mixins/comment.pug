@@ -27,6 +27,7 @@ mixin comment(comment)
                                     else
                                         div.comment-body=reply.body
                                         if user && user.is('admin')
+                                            br
                                             a(href=`/comment/${comment.id}/reply/${reply.id}/delete`) Delete
                 else
                     p.empty-list No replies

@@ -44,4 +44,9 @@ router.get('/comment/:commentId/reply/:replyId/delete', ensureUserAuthenticated,
 router.get('/info', function (req, res){
     res.render('info')
 })
+
+router.get('/roleInfo', function (req, res){
+    res.render('roleInfo')
+})
+
 module.exports = router;

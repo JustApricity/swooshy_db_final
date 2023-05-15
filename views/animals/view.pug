@@ -10,13 +10,13 @@ block content
                     a.button(href=`/animal/${animal.id}/edit`) Edit
                 if user && user.is('admin')
                     a.button(href=`/animal/${animal.id}/delete`) Delete
+            h3.animal-backstory=`"${animal.backstory}"`
             p.created-on Created
                 strong.emphasize #{animal.friendlyCreatedDate}
                 | by
                 strong.emphasize #{animal.user.first_name}
 
             img.animal-image(src=animal.image_url)
-            p.animal-body=animal.backstory
 
             div.comment-section
                 h3.comment-section-title Comments (#{animal.comments.length})

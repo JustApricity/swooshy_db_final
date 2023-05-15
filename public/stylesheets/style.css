@@ -5,7 +5,7 @@ body {
 }
 
 option, button, select, textarea {
-  font-size: 15px;
+  font-size: 16px;
 }
 
 * {
@@ -18,12 +18,16 @@ html {
 }
 
 a {
-  color: #F7F7F7;
+  color: #ff6c5c;
   display: inline-block;
   margin-right: 24px;
   text-decoration: none;
 }
 
+
+a.nav-link, a.main {
+  color: #F7F7F7;
+}
 
 .container {
   max-width: 1400px;
@@ -103,7 +107,7 @@ table.table {
 }
 
 .table td a {
-  font-size: 14px;
+  font-size: 16px;
 }
 
 .table tr:nth-child(2n) {
@@ -141,12 +145,12 @@ table.table {
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s ease;
-  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 }
 
 .button:hover {
   background-color: #8c0303;
-  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
 }
 
 .button.primary {
@@ -158,7 +162,7 @@ table.table {
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s ease;
-  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 }
 .button.primary:hover{
   background-color:#0f8c16;
@@ -170,10 +174,11 @@ label {
   margin-bottom: 4px;
 }
 
-input, textarea {
+input, textarea, select, option {
   border-radius: 8px;
   padding: 8px 12px;
   border: 1px solid #660000;
+  font-size: 16px;
 }
 
 
@@ -192,7 +197,7 @@ select {
 }
 
 .form-header {
-  font-size: 24px;
+  font-size: 28px;
   font-weight: bold;
   color: #660000;
   margin-bottom: 16px;
@@ -203,6 +208,9 @@ select {
   align-items: flex-start;
 }
 
+.form-label {
+  font-size: 24px;
+}
 .input-container {
   margin-bottom: 16px;
 }
@@ -220,7 +228,7 @@ select {
 }
 
 .helper-text {
-  font-size: 12px;
+  font-size: 16px;
   color: #660000;
   margin-top: 4px
 }
@@ -367,14 +375,25 @@ ul#error2 {
 
 .created-on{
   color: #7d3e3e;
+  font-size: 20px;
 }
 
 .animal-body{
   color: #3b1e1e;
   max-width: 120ch;
 }
+
+.animal-backstory {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 24px;
+  margin: 0px;
+  font-weight: lighter;
+  font-size: 20px;
+}
 .animal-title{
   color: #0F172A;
+  font-size: 36px;
 }
 
 .animal-image{
@@ -388,7 +407,7 @@ ul#error2 {
   border-radius: 12px;
   overflow: hidden;
   background: white;
-  font-size: 18px;
+  font-size: 20px;
 }
 
 .card:hover{
@@ -452,6 +471,7 @@ ul#error2 {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding-bottom: 0px;
 }
 
 /*explain style*/
