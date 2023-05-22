@@ -1,7 +1,7 @@
 const {Animal, Comment, Reply} = require('../models');
 let ages = ['Young', 'Adult', 'Elder'];
 let colors = ['Red', 'Orange', 'Yellow', 'Green', 'Blue', 'Purple'];
-let types = ['Avian', 'Reptilian', 'Aquatic', 'Arboreal', 'Nocturnal', 'Scavenger'];
+let types = ['Avian', 'Reptilian', 'Aquatic', 'Arboreal', 'Nocturnal', 'Scavenger', 'Ailurus', 'Arachnid', 'Bovine', 'Equine'];
 
 module.exports.renderAddForm = async function(req, res) {
     const animal = {
